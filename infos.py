@@ -94,9 +94,8 @@ def createFileMsg(filename,files):
         msg= '<b>🖇Enlaces🖇</b>\n'
         for f in files:
             newurl = directurl.replace('http://nexus.uclv.edu.cu/repository/','http://')
-            url = urllib.parse.unquote(f['newurl'],encoding='utf-8', errors='replace')
             #msg+= '<a href="'+f['url']+'">🔗' + f['name'] + '🔗</a>'
-            msg+= "<a href='"+url+"'>🔗"+f['name']+'🔗</a>\n'
+            msg+= "<a href='"+newurl+"'>🔗"+f['name']+'🔗</a>\n'
         return msg
     return ''
 
