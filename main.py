@@ -150,12 +150,13 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
     if client:
         for data in client:
                 files.append({'name':data['name'],'directurl':data['url']})
+        txtname = str(file).split('/')[-1].split('.')[0] + '.txt'
         bot.deleteMessage(message.chat.id,message.message_id)
         finishInfo = infos.createFinishUploading(file,file_size,max_file_size,file_upload_count,file_upload_count,findex)
         filesInfo = infos.createFileMsg(file,files)
         bot.sendMessage(message.chat.id,finishInfo+'\n'+filesInfo,parse_mode='html')
         if len(files)>0:
-            txtname = str(file).split('/')[-1].split('.')[0] + '.txt'
+            directurl = str(directurl).split('http://nexus.uclv.edu.cu/repository/')[-1].split(' ')[0] + ''
             sendTxt(txtname,files,update,bot)
 
 def ddl(update,bot,message,url,file_name='',thread=None,jdb=None):
