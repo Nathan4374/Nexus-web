@@ -156,7 +156,6 @@ def processFile(update,bot,message,file,thread=None,jdb=None):
         filesInfo = infos.createFileMsg(file,files)
         bot.sendMessage(message.chat.id,finishInfo+'\n'+filesInfo,parse_mode='html')
         if len(files)>0:
-            directurl = str(directurl).split('http://nexus.uclv.edu.cu/repository/')[-1].split(' ')[0] + ''
             sendTxt(txtname,files,update,bot)
 
 def ddl(update,bot,message,url,file_name='',thread=None,jdb=None):
